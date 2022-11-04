@@ -1,0 +1,14 @@
+extends layout
+block content
+  h1= title
+  -let man =[{"name":"Bittu","gender":"female","age":9,weight:5},{"name":"Billi","gender":"male","age":7,weight:4},{"name":"Banti","gender":"male","age":2,weight:9}]
+  div(class="container-fluid")
+    div(class="row")
+      each item,index in man
+        div.col-sm-2(onclick=`buy(${index})`) Name: #{item["name"]}  <br>  gender #{item["gender"]} <br> age: #{item["age"]}
+      
+  script.
+     function buy(itemNo)
+      {
+        alert(`Places to visit ${itemNo+1}`)
+      }
