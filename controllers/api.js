@@ -1,8 +1,8 @@
-exports.api = function(req, res) {
+exports.api = function (req, res) {
     res.write('[');
-    res.write('{"resource":"tire", ');
+    res.write('{"resource":"Monkey", ');
     res.write(' "verbs":["GET","PUT", "DELETE"] ');
     res.write('}');
     res.write(']')
     res.send();
-   };
+};
