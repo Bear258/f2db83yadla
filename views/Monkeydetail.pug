@@ -1,0 +1,20 @@
+extends layout
+block content
+    h1= title
+    - let Monkeyid = toShow._id
+    - let Monkeyname = toShow.Monkey_name
+    - let Monkeygender = toShow.Monkey_gender
+    - let Monkeyage = toShow.Monkey_age
+    div
+    div.row
+    div(class='MonkeyAttr mr-3') Monkey ID is:
+    div #{Monkeyid}
+    div.row
+    div(class='MonkeyAttr mr-3') Monkey Name is:
+    div #{Monkeyname}
+    div.row
+    div(class='MonkeyAttr mr-3') Monkey genger is:
+    div #{Monkeygender}
+    div.row
+    div(class='MonkeyAttr mr-3') Monkey age is:
+    div #{Monkeyage}
