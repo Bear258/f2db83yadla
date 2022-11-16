@@ -13,6 +13,7 @@ router.get('/', Monkey_controlers.Monkey_view_all_Page );
 router.get('/detail', Monkey_controlers.Monkey_view_one_Page);
 router.get('/create', Monkey_controlers.Monkey_create_Page);
 router.get('/update', Monkey_controlers.Monkey_update_Page);
+router.get('/delete', Monkey_controlers.Monkey_delete_Page);
 
 module.exports = router;
 // GET request for one costume.
