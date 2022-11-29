@@ -9,7 +9,7 @@ router.get('/', api_controller.api);
 /// COSTUME ROUTES ///
 // POST request for creating a Costume.
 router.post('/Monkey', Monkey_controller.Monkey_create_post);
-// DELETE request to delete Costume.
+// DELETE request to delete .
 router.delete('/Monkey/:id', Monkey_controller.Monkey_delete);
 // PUT request to update Costume.
 router.put('/Monkey/:id', Monkey_controller.Monkey_update_put);

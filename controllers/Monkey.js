@@ -1,15 +1,15 @@
 var Monkey = require('../models/Monkey'); 
  
-// List of all Monkeys 
+// List of all Monkey 
 exports.Monkey_list = function(req, res) { 
     res.send('NOT IMPLEMENTED: Monkey list'); 
 }; 
 
-// List of all Monkeys 
+// List of all Monkey
 exports.Monkey_list = async function(req, res) { 
     try{ 
-        theMonkeys = await Monkey.find(); 
-        res.send(theMonkeys); 
+        theMonkey = await Monkey.find(); 
+        res.send(theMonkey); 
     } 
     catch(err){ 
         res.status(500); 
@@ -32,11 +32,11 @@ exports.Monkey_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 }; 
-// List of all Monkeys 
+// List of all Monkey
 exports.Monkey_detail = async function(req, res) { 
     try{ 
-        theMonkeys = await Monkey.find(); 
-        res.send(theMonkeys); 
+        theMonkey = await Monkey.find(); 
+        res.send(theMonkey); 
     } 
     catch(err){ 
         res.status(500); 
@@ -49,11 +49,11 @@ exports.Monkey_create_post = function(req, res) {
     res.send('NOT IMPLEMENTED: Monkey create POST'); 
 }; 
  
-// List of all Monkeys 
+// List of all Monkey
 exports.Monkey_create_post = async function(req, res) { 
     try{ 
-        theMonkeys = await Monkey.find(); 
-        res.send(theMonkeys); 
+        theMonkey = await Monkey.find(); 
+        res.send(theMonkey); 
     } 
     catch(err){ 
         res.status(500); 
@@ -78,13 +78,14 @@ exports.Monkey_delete = async function(req, res) {
     } 
 }; 
  
-// List of all Monkeys 
+// List of all Monkey 
 // exports.Monkey_delete = async function(req, res) { 
 //     try{ 
-//         theMonkeys = await Monkey.find(); 
-//         res.send(theMonkeys); 
+//         theMonkey = await Monkey.find(); 
+//         res.send(theMonkey); 
 //     } 
 //     catch(err){ 
+
 //         res.status(500); 
 //         res.send(`{"error": ${err}}`); 
 //     }   
@@ -99,11 +100,11 @@ exports.Monkey_delete = async function(req, res) {
 //     res.send('NOT IMPLEMENTED: Monkey update PUT' + req.params.id); 
 // }; 
 
-// List of all Monkeys 
+// List of all Monkey 
 // exports.Monkey_update_put = async function(req, res) { 
 //     try{ 
-//         theMonkeys = await Monkey.find(); 
-//         res.send(theMonkeys); 
+//         theMonkey = await Monkey.find(); 
+//         res.send(theMonkey); 
 //     } 
 //     catch(err){ 
 //         res.status(500); 
@@ -187,8 +188,8 @@ exports.Monkey_view_one_Page = async function(req, res) {
 // Handle a show all view 
 exports.Monkey_view_all_Page = async function(req, res) { 
     try{ 
-        theMonkeys = await Monkey.find(); 
-        res.render('Monkeys', { title: 'Monkey Search Results', results: theMonkeys }); 
+        theMonkey = await Monkey.find(); 
+        res.render('Monkey', { title: 'Monkey Search Results', results: theMonkey }); 
     } 
     catch(err){ 
         res.status(500); 
@@ -204,9 +205,9 @@ exports.Monkey_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object 
     // {"Monkey_type":"goat", "cost":12, "size":"large"} 
-    document.item = req.body.item; 
-    document.quantity = req.body.quantity; 
-    document.cost = req.body.cost; 
+    document.Monkey_name = req.body.Monkey_name; 
+    document.Monkey_gender = req.body.Monkey_gender; 
+    document.Monkey_age = req.body.Monkey_age; 
     try{ 
         let result = await document.save(); 
         res.send(result); 

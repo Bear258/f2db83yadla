@@ -1,43 +1,46 @@
-extends layout
-
-block content
-  h1= title
-
-    - let Monkeyid = toShow._id
-    - let Monkeyname = toShow.Monkey_Name
-    - let Monkeygender = toShow.Monkey_gender
-    - let Monkeyage = toShow.Monkey_age
-
-    div.row(class='mb-2')
-      div.mr-1 ID is
-      div #{Monkeyid}
-    - let actionid = "/resource/Monkeys/" + Monkeyid
-    form(id='MonkeyForm', action= actionid, method="PUT")
-      div.form-group
-        label.MonkeyAttr(for='Monkey_name') Monkey name
-        input#Monkeyname(type='text' name='Monkey_name', value= Monkey_name )
-      div.form-group
-        label.MonkeyAttr(for='Monkey_gender') Monkey gender
-        input#Monkeygender(type='text' name='Monkey_gender', value= Monkey_gender )
-      div.form-group
-        label.MonkeyAttr(for='Monkey_age') Monkey age
-        input#Monkeyage(type='number' name='Monkey_age', value= Monkey_age )
-      input(type="submit")
-
-    script.
-      document.forms['MonkeyForm'].addEventListener('submit', (event) => {
-        event.preventDefault();
-        // TODO do something here to show user that form is being submitted
-        fetch(event.target.action, {
-          method: 'PUT',
-          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-        }).then((resp) => {
-          return resp.json(); // or resp.text() or whatever the server sends
-        }).then((body) => {
-          alert("Update succeded")
-          // TODO handle body
-        }).catch((error) => {
-          // TODO handle error
-          alert("Update failed " + error )
-        });
-      });
+extends layout 
+ 
+block content 
+  h1= title 
+  if(toShow == null)
+    h2 No instance to Detail View 
+  else 
+ 
+    - let Monkeyid = toShow._id 
+    - let Monkey_name = toShow.Monkey_name 
+    - let Monkey_gender  = toShow.Monkey_gender  
+    - let Monkey_age  = toShow.Monkey_age
+   
+    div.row(class='mb-2') 
+        div.mr-1 ID is 
+        div #{Monkeyid} 
+    - let actionid = "/resource/Monkey/" + Monkeyid 
+    form(id='MonkeyForm', action= actionid, method="PUT") 
+        div.form-group 
+            label.MonkeyAttr(for='Monkey_name') Monkey name  
+            input#Monkey_name(type='name', name='Monkey_name', value= Monkey_name  ) 
+        div.form-group 
+            label.MonkeyAttr(for='gender') Monkey gender
+            input#Monkey_gender(type='text', name='gender', value= Monkey_gender ) 
+        div.form-group 
+            label.MonkeyAttr(for='age') Monkey age 
+            input#Monkey_age(type='number', name='age', value= Monkey_age  ) 
+           input(type="submit") 
+ 
+  script. 
+    document.forms['MonkeyForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });

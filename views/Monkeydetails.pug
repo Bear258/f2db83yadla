@@ -1,0 +1,28 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  if(toShow == null)
+    h2 No instance to Detail View 
+  else  
+ 
+    - let Monkeyid = toShow._id 
+    - let Monkey_type = toShow.Monkey_type 
+    - let Monkeycost = toShow.cost 
+    - let Monkeysize = toShow.size 
+    div 
+        div.row 
+            div(class='MonkeyAttr mr-3') Monkey ID is: 
+            div #{Monkeyid} 
+        div.row 
+            div(class='MonkeyAttr mr-3') Monkey Type is: 
+            div #{Monkey_type} 
+        div.row 
+            div(class='MonkeyAttr mr-3') Monkey Size is: 
+            div #{Monkeysize} 
+        div.row 
+            div(class='MonkeyAttr mr-3') Monkey Cost is: 
+            div #{Monkeycost}
+
+
+
